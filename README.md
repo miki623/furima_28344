@@ -23,34 +23,33 @@
 
 | Column              | Type    | Options                        |
 | ------------------- | ------- | ------------------------------ |
-| user_id             | string  | null: false, foreign_key: true |
+| user                | integer | null: false, foreign_key: true |
 | name                | string  | null: false                    |
-| info                | string  | null: false                    |
+| info                | text    | null: false                    |
 | category            | integer | null: false                    |
 | sales_status        | integer | null: false                    |
 | delivery_fee        | integer | null: false                    |
 | shipping_area       | integer | null: false                    |
 | scheduled_delivery  | integer | null: false                    |
-| price               | string  | null: false                    |
+| price               | integer | null: false                    |
 
 ### Association
 
 - belongs_to :user
 - has_one :deal
 - has_one_attached :image
-- has_one :category
-- has_one :sales_status
-- has_one :delivery_fee
-- has_one :scheduled_delivery
-- has_one :shipping_area
+- belongs_to_active_hash :category
+- belongs_to_active_hash :sales_status
+- belongs_to_active_hash :delivery_fee
+- belongs_to_active_hash :scheduled_delivery
+- belongs_to_active_hash :shipping_area
 
 ## deals テーブル
 
 | Column      | Type    | Options                        |
 | ----------- | ------- | ------------------------------ |
-| user_id     | string  | null: false, foreign_key: true |
-| buyer_id    | string  | null: false, foreign_key: true |
-| item_id     | string  | null: false, foreign_key: true |
+| user        | integer | null: false, foreign_key: true |
+| item        | integer | null: false, foreign_key: true |
 
 ### Association
 
@@ -62,15 +61,16 @@
 
 | Column              | Type    | Options                        |
 | ------------------- | ------- | ------------------------------ |
-| deal_id             | string  | null: false, foreign_key: true |
+| deal                | integer | null: false, foreign_key: true |
 | postal_code         | string  | null: false                    |
 | shipping_area       | integer | null: false                    |
 | city                | string  | null: false                    |
 | house_number        | string  | null: false                    |
-| building_name       | string  | null: false                    |
+| building_name       | string  |                                |
 | phone_number        | string  | null: false                    |
 
 ### Association
 
-has_one :card
-belongs_to :deal
+- belongs_to :deal
+- belongs_to_active_hash :shipping_area
+
