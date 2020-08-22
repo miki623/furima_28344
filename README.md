@@ -21,17 +21,17 @@
 
 ## items テーブル
 
-| Column              | Type    | Options                        |
-| ------------------- | ------- | ------------------------------ |
-| user                | integer | null: false, foreign_key: true |
-| name                | string  | null: false                    |
-| info                | text    | null: false                    |
-| category            | integer | null: false                    |
-| sales_status        | integer | null: false                    |
-| delivery_fee        | integer | null: false                    |
-| shipping_area       | integer | null: false                    |
-| scheduled_delivery  | integer | null: false                    |
-| price               | integer | null: false                    |
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| user                | references | null: false, foreign_key: true |
+| name                | string     | null: false                    |
+| info                | text       | null: false                    |
+| category            | integer    | null: false                    |
+| sales_status        | integer    | null: false                    |
+| delivery_fee        | integer    | null: false                    |
+| shipping_area       | integer    | null: false                    |
+| scheduled_delivery  | integer    | null: false                    |
+| price               | integer    | null: false                    |
 
 ### Association
 
@@ -46,10 +46,10 @@
 
 ## deals テーブル
 
-| Column      | Type    | Options                        |
-| ----------- | ------- | ------------------------------ |
-| user        | integer | null: false, foreign_key: true |
-| item        | integer | null: false, foreign_key: true |
+| Column      | Type       | Options                         |
+| ----------- | ---------- | ------------------------------- |
+| user        | references | null: false,  foreign_key: true |
+| item        | references | null: false,  foreign_key: true |
 
 ### Association
 
@@ -59,15 +59,15 @@
 
 ## shipments テーブル
 
-| Column              | Type    | Options                        |
-| ------------------- | ------- | ------------------------------ |
-| deal                | integer | null: false, foreign_key: true |
-| postal_code         | string  | null: false                    |
-| shipping_area       | integer | null: false                    |
-| city                | string  | null: false                    |
-| house_number        | string  | null: false                    |
-| building_name       | string  |                                |
-| phone_number        | string  | null: false                    |
+| Column              | Type       | Options                         |
+| ------------------- | ---------- | ------------------------------- |
+| deal                | references | null: false, foreign_key: true  |
+| postal_code         | string     | null: false                     |
+| shipping_area       | integer    | null: false                     |
+| city                | string     | null: false                     |
+| house_number        | string     | null: false                     |
+| building_name       | string     |                                 |
+| phone_number        | string     | null: false                     |
 
 ### Association
 
