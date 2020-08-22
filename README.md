@@ -55,9 +55,9 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipment
+- has_one :transaction
 
-## shipments テーブル
+## transactions テーブル
 
 | Column              | Type       | Options                         |
 | ------------------- | ---------- | ------------------------------- |
