@@ -44,6 +44,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rubocop', require: false
+
 end
 
 group :test do
@@ -60,3 +61,4 @@ gem "pry-rails"
 gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem "devise"
+
