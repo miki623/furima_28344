@@ -15,8 +15,6 @@ const pay = () => {
     console.log(card)
 
     Payjp.createToken(card, (status, response) => {
-      console.log(status)
-      console.log(response)
       if (status === 200) {
         const token = response.id;
         const renderDom = document.getElementById("charge-form");
@@ -37,7 +35,6 @@ const pay = () => {
         renderDom.insertAdjacentHTML("beforeend", tokenObj);
         document.getElementById("charge-form").submit();
         document.getElementById("charge-form").reset();
-        // alert("カード情報が正しくありません。");
       }
     })
   })
