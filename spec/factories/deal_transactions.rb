@@ -9,11 +9,7 @@ FactoryBot.define do
     house_number        {"1-1"}
     phone_number        {"0752127757"}
     token               {"token"}
-    # user {1}
-    # item {1}
     association :user
     association :item
-    # user_id {FactoryBot.create(:user).id}
-    # item_id {FactoryBot.create(:item).id}
   end
 end
