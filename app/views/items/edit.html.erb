@@ -25,6 +25,9 @@ app/assets/stylesheets/items/new.css %>
       </div>
     </div>
     <%# /出品画像 %>
+    <div id="image-list">
+    <% image_tag @item.image, class: "item-img" %> <%# idを設定する・jsでidをとってくる・ページ読み込み時kに表示・まず何が入っているかconsole.logで確認 %>
+    </div>
     <%# 商品名と商品説明 %>
     <div class="new-items">
       <div class="weight-bold-text">

@@ -227,3 +227,11 @@
 .inc {
   font-size: 13px;
 }
+
+.item-sample-image {
+  height: 30vh;
+  width: 35vw;
+  min-height: 200px;
+  background-color: rgb(205, 202, 202);
+  object-fit: contain;
+}
