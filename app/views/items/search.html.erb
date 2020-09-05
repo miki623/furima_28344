@@ -1,0 +1,48 @@
+
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+  </header>
+</div>
+
+  <%# 商品一覧 %>
+  <div class='item-contents'>
+    <%= link_to '検索結果', "#", class: "subtitle" %>
+    <ul class='item-lists'>
+      <% if @results.length != 0 %> 
+        <% @results.each do |result| %>
+          <li class='list'>
+            <%= link_to item_path(result.id) do %>
+              <div class='item-img-content'>
+                <%= image_tag result.image, class: "item-img" %>
+                <div class='item-info'>
+                <h3 class='item-name'>
+                  <%= result.name %>
+                </h3>
+                <div class='item-price'>
+                  <span><%= result.price %>円<br>(税込み)</span>
+                  <div class='star-btn'>
+                    <%= image_tag "star.png", class:"star-icon" %>
+                    <span class='star-count'>0</span>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% else %>
+          <p class="subtitle">該当商品はありません</p>
+      <% end %>
+    </ul>
+  </div>
+  <%# //商品一覧 %>
+</div>
+
+  <%= link_to new_item_path, class:"purchase-btn-text" do %>
+    <div class='purchase-btn'>
+      <p>出品する</p>
+      <%= image_tag 'camera.png' , size: '185x50' ,class: "purchase-btn-icon" %>
+    </div>
+  <%end%>
+
+<%= render "shared/footer" %>

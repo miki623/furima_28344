@@ -11,8 +11,26 @@
   </div>
   <div class='nav'>
     <ul class='lists-left'>
-      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
-      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+    <%= search_form_for @p, url: items_search_path do |f| %>
+      <%= f.label :category_eq, "カテゴリー" %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: "指定なし" %>
+      <br>
+      <%= f.label :item_price, "価格" %>
+      <%= f.radio_button :price_lteq, "" %>
+      <%= f.label "指定なし", for: "q_price_lteq_" %>
+      <%= f.radio_button :price_lteq, "2500" %>
+      <%= f.label "2,500円以下", for: "q_price_lteq_2500" %>
+      <%= f.radio_button :price_lteq, "10000" %>
+      <%= f.label "10,000円以下", for: "q_price_lteq_10000" %>
+      <%= f.radio_button :price_lteq, "50000" %>
+      <%= f.label "50,000円以下", for: "q_price_lteq_50000" %>
+      <%= f.radio_button :price_lteq, "100000" %>
+      <%= f.label "100,000円以下", for: "q_price_lteq_100000" %>
+      <%= f.radio_button :price_gteq, " 100000" %>
+      <%= f.label "100,000円以上", for: "q_price_gteq__100000" %>
+      <br>
+      <%=f.submit "search"%>
+    <%end%>
     </ul>
     <ul class='lists-right'>
       <% if user_signed_in? %>
