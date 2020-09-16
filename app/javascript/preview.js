@@ -5,7 +5,6 @@ if (document.URL.match(/new/) || document.URL.match(/edit/)) {
     const imageList = document.getElementById("image-list")
 
     const currentImage = document.getElementById("item-current-image");
-    console.log(currentImage)
 
 
     document.getElementById("item-image").addEventListener("change", (e) => {

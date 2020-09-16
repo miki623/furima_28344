@@ -12,15 +12,15 @@ crumb :sign_in_user do
   parent :root
 end
 
-crumb :item_show do |item|
-  link "商品の詳細", item_path(item)
-  parent :root
-end
-
-# crumb :item_show do
-#   link "商品の詳細", item_path(params[:id])
+# crumb :item_show do |item|
+#   link "商品の詳細", item_path(item)
 #   parent :root
 # end
+
+crumb :item_show do
+  link "商品の詳細", item_path(params[:id])
+  parent :root
+end
 
 crumb :new_item do
   link "出品商品の登録", new_item_path
@@ -32,13 +32,13 @@ crumb :item_edit do
   parent :item_show
 end
 
-crumb :transaction do |item|
-  link "商品の購入", item_transactions_path(params[:item_id])
-  parent :item_show, item
-end
-
-# crumb :transaction do
+# crumb :transaction do |item|
 #   link "商品の購入", item_transactions_path(params[:item_id])
-#   parent :root
+#   parent :item_show, item
 # end
+
+crumb :transaction do
+  link "商品の購入", item_transactions_path(params[:item_id])
+  parent :root
+end
 

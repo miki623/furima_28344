@@ -52,6 +52,7 @@
   flex-wrap: wrap;
   width: 100%;
   padding: 1vh 0;
+  font-weight: bold;
 }
 
 .lists-left {
@@ -75,6 +76,10 @@
   display: flex;
   list-style: none;
   align-items: flex-end;
+}
+
+.lists-right a {
+  color: #be6a6a;
 }
 
 

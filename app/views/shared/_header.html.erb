@@ -10,6 +10,17 @@
     </form>
   </div>
   <div class='nav'>
+    <ul class='lists-right'>
+      <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+     </div>
+     <div class="search-list">
     <ul class='lists-left'>
     <%= search_form_for @p, url: items_search_path do |f| %>
       <%= f.label :category_eq, "カテゴリー" %>
@@ -26,20 +37,13 @@
       <%= f.label "50,000円以下", for: "q_price_lteq_50000" %>
       <%= f.radio_button :price_lteq, "100000" %>
       <%= f.label "100,000円以下", for: "q_price_lteq_100000" %>
-      <%= f.radio_button :price_gteq, " 100000" %>
-      <%= f.label "100,000円以上", for: "q_price_gteq__100000" %>
+      <%= f.radio_button :price_lteq, " 500000" %>
+      <%= f.label "500,000円以下", for: "q_price_lteq__500000" %>
       <br>
       <%=f.submit "search"%>
     <%end%>
     </ul>
-    <ul class='lists-right'>
-      <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
-      <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-    </ul>
-  </div>
+    </div>
+
+ 
 </header>
